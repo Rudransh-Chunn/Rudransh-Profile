@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Rudransh-Profile</title>
   </head>
+
   <body>
     <div class="custom-cursor"></div>
     <div class="start-screen">
@@ -14,12 +15,22 @@
     <video class="bg-video" autoplay muted loop playsinline>
       <source src="Assets/bg-vid.mp4" type="video/mp4" />
     </video>
+    <div class="spotify-widget" id="spotify"></div>
     <main class="website">
       <div class="card">
         <div class="profile-top">
           <img src="Assets/profile-1.webp" class="avatar" />
         </div>
-        <h1 class="name">♛ 𝖱𝖴𝗗𝖱𝗔𝖭𝙎𝘏 ♛</h1>
+        <h1 class="name">♛ 𝖱𝖴𝗗𝗥𝖠𝙽𝘚𝘏 ♛</h1>
+        <div class="discord-profile">
+          <div class="profile-main">
+            <div class="avatar-box">
+              <img id="discord-avatar" />
+              <span id="status-dot"></span>
+            </div>
+            <div class="user-info">
+              <div class="display-name" id="discord-display"></div>
+              <div class="username" id="discord-username"></div>
       </div>
     </main>
     <script src="script.js"></script>
