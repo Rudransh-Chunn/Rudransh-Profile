@@ -7,12 +7,18 @@
   cursor: none;
 }
 
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 .custom-cursor {
   position: fixed;
   width: 90px;
   height: 90px;
   background: url("Assets/sword.png") center/contain no-repeat;
   pointer-events: none;
+  user-select: none;
   z-index: 99999999;
   transform: scale(1);
   transition: transform 0.15s ease;
@@ -66,6 +72,10 @@
 }
 
 .website {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: reveal 1.5s ease;
   position: relative;
   z-index: 1;
@@ -80,4 +90,49 @@
     filter: blur(0);
     transform: scale(1);
   }
+}
+
+.card {
+  width: 790px;
+  height: 580px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+.profile-top {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.5);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.name {
+  font-family: "Manrope", sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-top: 10px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
 }
