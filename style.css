@@ -87,6 +87,7 @@ body {
     filter: blur(20px);
     transform: scale(1.05);
   }
+
   to {
     filter: blur(0);
     transform: scale(1);
@@ -117,16 +118,8 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 30px rgba(0, 150, 255, 0.5);
-  animation: float 4s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(189, 197, 203, 0.971);
 }
-
-@keyframes float {
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
 .name {
   font-family: "Manrope", sans-serif;
   font-size: 52px;
@@ -136,7 +129,20 @@ body {
   letter-spacing: -1px;
   margin-top: 10px;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+  transition:
+    transform 0.5s ease,
+    text-shadow 0.5s ease,
+    letter-spacing 0.5s ease;
+  cursor: none;
 }
+
+.name:hover {
+  transform: translateY(-8px) scale(1.05);
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 15px rgba(255, 255, 255, 0.5),    /* ik this looks weird but still :D */
+    0 0 40px rgba(189, 197, 203, 0.971);
+} 
 
 .discord-profile {
   width: 85%;
@@ -171,7 +177,7 @@ body {
   height: 105px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 30px rgba(0, 150, 255, 0.4);
+  box-shadow: 0 0 30px rgba(189, 197, 203, 0.971);
 }
 
 #status-dot {
@@ -219,7 +225,7 @@ body {
 
 .spotify-widget {
   position: fixed;
-  top: 28px;
+  top: 20px;
   right: 30px;
   width: 340px;
   padding: 18px;
@@ -242,7 +248,6 @@ body {
   height: 75px;
   border-radius: 16px;
   object-fit: cover;
-
   box-shadow: 0 0 25px rgba(29, 185, 84, 0.5);
 }
 
@@ -282,4 +287,59 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin-top: 35px;
+}
+
+.social {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.social img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0) saturate(100%) invert(45%);
+  transition: 0.25s ease;
+}
+
+.social span {
+  position: absolute;
+  bottom: -35px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(-5px);
+  pointer-events: none;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.social:hover img {
+  filter: brightness(0) invert(1);
+  transform: translateY(-5px);
+}
+
+.social:hover span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social:active {
+  transform: scale(0.75);
 }
