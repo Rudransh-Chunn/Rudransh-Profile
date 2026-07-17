@@ -15,6 +15,56 @@ startScreen.addEventListener("click", () => {
   startScreen.classList.add("hide");
 });
 
+const music = document.getElementById("bg-music");
+const playBtn = document.getElementById("play-btn");
+const muteBtn = document.getElementById("mute-btn");
+const volume = document.getElementById("volume");
+
+let playing = false;
+let muted = false;
+
+music.volume = 0.5;
+
+startScreen.addEventListener("click", async () => {
+  await music.play();
+  playing = true;
+  playBtn.innerHTML = "❚❚";
+});
+
+playBtn.addEventListener("click", () => {
+  if (playing) {
+    music.pause();
+    playBtn.innerHTML = "▶";
+  } else {
+    music.play();
+    playBtn.innerHTML = "❚❚";
+  }
+
+  playing = !playing;
+});
+
+muteBtn.addEventListener("click", () => {
+  muted = !muted;
+
+  if (muted) {
+    music.volume = 0;
+    muteBtn.innerHTML = "🔇";
+  } else {
+    music.volume = volume.value;
+    muteBtn.innerHTML = "🔊";
+  }
+});
+
+volume.addEventListener("input", () => {
+  music.volume = volume.value;
+
+  if (volume.value == 0) {
+    muteBtn.innerHTML = "🔇";
+  } else {
+    muteBtn.innerHTML = "🔊";
+  }
+});
+
 const discordID = "1441307250831396877";
 
 fetch(`https://api.lanyard.rest/v1/users/${discordID}`)

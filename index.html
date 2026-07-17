@@ -15,6 +15,14 @@
       <source src="Assets/bg-vid.mp4" type="video/mp4" />
     </video>
     <div class="spotify-widget" id="spotify"></div>
+    <div class="audio-card">
+      <button id="play-btn">▶</button>
+      <button id="mute-btn">🔊</button>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+    </div>
+    <audio id="bg-music" loop>
+      <source src="Assets/bg-music.mp3" type="audio/mpeg" />
+    </audio>
     <main class="website">
       <div class="card">
         <div class="profile-top">
@@ -53,7 +61,7 @@
 
           <a
             href="https://open.spotify.com/user/31jsdwpmiyb5xkgs6jgkhh2rrgna?si=8126aca02cea42f0"
-            target="_blank"                                     
+            target="_blank"
             class="social"
           >
             <img
@@ -69,7 +77,11 @@
             <span>Mail</span>
           </a>
 
-          <a href="https://rudranshchunn.netlify.app" target="_blank" class="social">
+          <a
+            href="https://rudranshchunn.netlify.app"
+            target="_blank"
+            class="social"
+          >
             <img
               src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlechrome.svg"
             />

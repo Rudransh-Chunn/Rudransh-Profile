@@ -71,6 +71,127 @@ body {
   z-index: -1;
 }
 
+.spotify-widget {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 340px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  color: white;
+  font-family: "Manrope", sans-serif;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
+  z-index: 20;
+  animation: spotify-in 0.8s ease;
+}
+
+.spotify-widget img {
+  width: 75px;
+  height: 75px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(29, 185, 84, 0.5);
+}
+
+.spotify-info {
+  overflow: hidden;
+}
+
+.spotify-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 5px;
+}
+
+.spotify-title {
+  font-size: 17px;
+  font-weight: 800;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-artist {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-top: 3px;
+}
+
+@keyframes spotify-in {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.audio-card {
+  position: fixed;
+  top: 28px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
+  z-index: 20;
+}
+
+.audio-card button {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 18px;
+  cursor: none;
+  transition: 0.3s ease;
+}
+
+.audio-card button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.audio-card button:active {
+  transform: scale(0.85);
+}
+
+#volume {
+  width: 100px;
+  cursor: pointer;
+  accent-color: white;
+}
+
+@keyframes audio-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .website {
   min-height: 100vh;
   display: flex;
@@ -140,9 +261,9 @@ body {
   transform: translateY(-8px) scale(1.05);
   letter-spacing: 3px;
   text-shadow:
-    0 0 15px rgba(255, 255, 255, 0.5),    /* ik this looks weird but still :D */
-    0 0 40px rgba(189, 197, 203, 0.971);
-} 
+    0 0 15px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(189, 197, 203, 0.971); /* ik this looks weird but still :D */
+}
 
 .discord-profile {
   width: 85%;
@@ -221,72 +342,6 @@ body {
   margin-top: 10px;
   font-size: 18px;
   opacity: 0.8;
-}
-
-.spotify-widget {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  width: 340px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 22px;
-  color: white;
-  font-family: "Manrope", sans-serif;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.35);
-  z-index: 20;
-  animation: spotify-in 0.8s ease;
-}
-
-.spotify-widget img {
-  width: 75px;
-  height: 75px;
-  border-radius: 16px;
-  object-fit: cover;
-  box-shadow: 0 0 25px rgba(29, 185, 84, 0.5);
-}
-
-.spotify-info {
-  overflow: hidden;
-}
-
-.spotify-label {
-  font-size: 11px;
-  letter-spacing: 2px;
-  opacity: 0.6;
-  margin-bottom: 5px;
-}
-
-.spotify-title {
-  font-size: 17px;
-  font-weight: 800;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.spotify-artist {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-top: 3px;
-}
-
-@keyframes spotify-in {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .social-links {
