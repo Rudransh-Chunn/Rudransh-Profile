@@ -16,7 +16,7 @@ Personal profile webpage that was inspired by guns.lol for experimenting with mo
 
 ## Live Demo
 
-(wait lemme add it)
+[(LIVE DEMO)](https://rudransh-chunn.github.io/Rudransh-Profile/)
 
 ## Purpose
 I created this to compete with my friend's guns.lol page. My friend's page -> https://guns.lol/xroven
