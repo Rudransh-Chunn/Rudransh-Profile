@@ -2,59 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Rudransh-Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Rudransh Profile</title>
+    <meta name="description" content="Responsive bio and portfolio profile with interactive Discord integration, Spotify widget, ambient music player, Instagram, and opening animations." />
+    <meta property="og:title" content="Rudransh Profile Showcase" />
+    <meta property="og:description" content="Responsive bio and portfolio profile with interactive Discord integration, Spotify widget, ambient music player, Instagram, and opening animations." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div class="custom-cursor"></div>
-    <div class="start-screen">
-      <h1>CLICK TO START</h1>
+
+    <div class="custom-cursor" aria-hidden="true">
+      <div class="cursor-blade"></div>
     </div>
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="Assets/bg-vid.mp4" type="video/mp4" />
-    </video>
-    <div class="spotify-widget" id="spotify"></div>
-    <div class="audio-card">
-      <button id="play-btn">▶</button>
-      <button id="mute-btn">🔊</button>
-      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" />
+
+    <div class="start-screen" role="button" tabindex="0" aria-label="Click to start profile experience">
+      <div class="start-ripple"></div>
+      <div class="start-content">
+        <div class="start-icon">♛</div>
+        <h1>CLICK TO START</h1>
+        <div class="start-subtext">Click or tap to enter</div>
+      </div>
     </div>
-    <audio id="bg-music" loop>
+
+    <div class="bg-container">
+      <video class="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="Assets/bg-vid.mp4" type="video/mp4" />
+      </video>
+      <canvas id="bg-canvas"></canvas>
+      <div class="bg-ambient-glow"></div>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
       <source src="Assets/bg-music.mp3" type="audio/mpeg" />
     </audio>
+
+ 
+      <div class="audio-card">
+        <button id="play-btn" aria-label="Play/Pause Background Music" title="Play/Pause">▶</button>
+        <button id="mute-btn" aria-label="Mute/Unmute Audio" title="Mute/Unmute">🔊</button>
+        <div class="volume-wrapper">
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" aria-label="Volume Slider" />
+        </div>
+      </div>
+
+      <div class="spotify-widget" id="spotify" aria-live="polite">
+        <div class="spotify-artwork-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.6;"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </div>
+        <div class="spotify-info">
+          <div class="spotify-label">SPOTIFY</div>
+          <div class="spotify-title">Loading status...</div>
+          <div class="spotify-artist">Connecting to Lanyard</div>
+        </div>
+      </div>
+    </header>
+
     <main class="website">
       <div class="card">
+
         <div class="profile-top">
-          <img src="Assets/profile-1.webp" class="avatar" />
+          <div class="avatar-wrapper">
+            <div class="avatar-glow-ring"></div>
+            <img
+              src="Assets/profile-1.webp"
+              class="avatar"
+              alt="Rudransh Avatar"
+              onerror="this.src='https://api.dicebear.com/7.x/bottts/svg?seed=Rudransh&backgroundColor=1e293b'"
+            />
+            <span class="crown-badge">♛</span>
+          </div>
         </div>
-        <h1 class="name">♛ 𝖱𝖴𝗗𝗥𝖠𝙽𝘚𝘏 ♛</h1>
-        <div class="discord-profile">
+
+        <div class="name-container">
+          <h1 class="name">♛ 𝖱𝖴𝗗𝗥𝖠𝙽𝘚𝘏 ♛</h1>
+        </div>
+
+        <div class="discord-profile" aria-label="Discord Status Card">
           <div class="profile-main">
             <div class="avatar-box">
-              <img id="discord-avatar" />
+              <img
+                id="discord-avatar"
+                alt="Discord Profile Picture"
+                src="https://cdn.discordapp.com/embed/avatars/0.png"
+              />
               <span id="status-dot"></span>
             </div>
             <div class="user-info">
-              <div class="display-name" id="discord-display">Loading...</div>
+              <div class="display-name" id="discord-display">Rudransh</div>
               <div class="username">
-                <span id="discord-username"></span>
-                <span class="server-tag" id="server-tag"> 🗲ᴅᴇᴠ </span>
+                <span id="discord-username">@rudransh</span>
+                <span class="server-tag" id="server-tag">💎TPH</span>
               </div>
               <div class="status-text">
-                <span id="status-text"></span>
+                <span id="status-text">Syncing status...</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="social-links">
+
+        <nav class="social-links" aria-label="Social Profiles">
           <a
-            href="https://github.com/Rudransh-Chunn"
+            href="https://instagram.com"
             target="_blank"
-            class="social"
+            rel="noopener noreferrer"
+            class="social instagram"
+            aria-label="Instagram"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+              alt="Instagram"
+            />
+            <span>Instagram</span>
+          </a>
+
+          <a
+            href="https://www.instagram.com/chunn_rudransh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social github"
+            aria-label="GitHub"
           >
             <img
               src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg"
+              alt="GitHub"
             />
             <span>GitHub</span>
           </a>
@@ -62,17 +134,25 @@
           <a
             href="https://open.spotify.com/user/31jsdwpmiyb5xkgs6jgkhh2rrgna?si=8126aca02cea42f0"
             target="_blank"
-            class="social"
+            rel="noopener noreferrer"
+            class="social spotify"
+            aria-label="Spotify"
           >
             <img
               src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/spotify.svg"
+              alt="Spotify"
             />
             <span>Spotify</span>
           </a>
 
-          <a href="mailto:rudranshchunn2k13@gmail.com" class="social">
+          <a
+            href="mailto:rudranshchunn2k13@gmail.com"
+            class="social mail"
+            aria-label="Mail"
+          >
             <img
               src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg"
+              alt="Mail"
             />
             <span>Mail</span>
           </a>
@@ -80,16 +160,18 @@
           <a
             href="https://rudranshchunn.netlify.app"
             target="_blank"
-            class="social"
+            rel="noopener noreferrer"
+            class="social site"
+            aria-label="Personal Website"
           >
             <img
               src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlechrome.svg"
+              alt="Site"
             />
             <span>Site</span>
           </a>
-        </div>
-      </div>
-    </main>
-    <script src="script.js"></script>
+        </nav>
+
+    <script type="module" src="/script.js"></script>
   </body>
 </html>
